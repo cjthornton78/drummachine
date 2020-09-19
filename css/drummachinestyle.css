@@ -1,0 +1,257 @@
+body {
+    background-color: hsl(25,75%,50%);
+    color: darkslategray;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+header {
+    background-color: darkslategray;
+    color: white;
+    text-align: center;
+    display: inline-block;
+    position: fixed;
+    left: 0px;
+    top: 0px;
+    width: 100%;
+    height: 50px;
+    overflow: hidden;
+    z-index: 2;
+    border-bottom: 1px solid seashell;
+    padding: 30px;
+    margin: 0px;
+}
+
+header h1 {
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    position: relative;
+    top: -2.2rem;
+    font-size: 3rem;
+}
+
+main {
+    position: relative;
+    top: 120px;
+}
+
+#controlButtonsBlock {
+    margin: auto;
+    float: right;
+    margin-right: 30px;
+}
+
+.controlButtons {
+    border-color: seashell;
+    border-radius: 5px;
+    border-style: solid;
+    border-width: 1px;
+    padding: 7px;
+    font-weight: bold;
+    margin-left: 30px;
+    display: inline-block;
+    cursor: pointer;
+}
+
+#bpmHeaderInfo {
+    display: none;
+}
+
+#headerBpmValue {
+    color: white;
+}
+
+#block2 .instrumentId {
+    display: none;
+}
+
+#block3 .instrumentId {
+    display: none;
+}
+
+#block4 .instrumentId {
+    display: none;
+}
+
+.instrumentId {
+    border-color: seashell;
+    border-radius: 5px;
+    border-style: solid;
+    border-width: 1px;
+    padding: 7px;
+    font-weight: bold;
+    margin-right: 5px;
+}
+
+.beatButton {
+    background-color: darkslategray;
+    width: 2rem;
+    height: 2rem;
+    border-radius: 5px;
+    padding: 3px;
+    cursor: pointer;
+}
+
+.buttonGridContainer{
+    display: inline-block;
+    padding: 30px 0px 30px 0px;
+}
+
+.buttonGrid {
+    display: inline-block;
+}
+
+.buttonTable {
+    display: inline-block;
+}
+
+#bpmControl {
+    height: 310px;
+    border-color: seashell;
+    border-radius: 5px;
+    border-style: solid;
+    border-width: 1px;
+    padding: 7px;
+    width: 200px;
+    display: inline-block;
+    position: relative;
+    top: -134px;
+    left: 10px;
+}
+
+#bpmControl h1 {
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: 3rem;
+    color: darkslategray;
+    text-align: center;
+}
+
+#bpmControl h2 {
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: 2.5rem;
+    color: white;
+    text-align: center;
+}
+
+#bpmSlider {
+  -webkit-appearance: none;  /* Override default CSS styles */
+  appearance: none;
+  width: 300px; /* Full-width */
+  height: 25px; /* Specified height */
+  background: #d3d3d3; /* Grey background */
+  outline: none; /* Remove outline */
+  opacity: 0.9; /* Set transparency (for mouse-over effects on hover) */
+  -webkit-transition: .2s; /* 0.2 seconds transition on hover */
+  transition: opacity .2s;
+  transform: rotate(270deg);
+  position: relative;
+  top: 140px;
+  left: -135px;
+}
+
+#positionCounterBox {
+    display: none;
+}
+
+footer p {
+    text-align: center;
+}
+
+#splitGridsInTwo {
+    display: none;
+}
+
+.splitGridsInFour {
+    display: none;
+}
+
+@media only screen and (max-width: 30cm) {
+    #bpmControl {
+        width: 35px;
+        top: -295px;
+    }
+
+    #bpmHeaderInfo {
+        display: block;
+        padding-left: 180px;
+        border-color: seashell;
+        border-radius: 5px;
+        border-style: solid;
+        border-width: 1px;
+        margin-left: 2px;
+        margin-bottom: 5px;
+        width: 700px;
+    }
+
+    #bpmControlInfo {
+        display: none;
+    }
+
+    .controlSymbols {
+        display: none;
+    }
+
+    .controlLabels {
+        display: inline;
+    }
+}
+
+@media only screen and (max-width: 25cm) {
+    #splitGridsInTwo {
+        display: inline;
+    }
+
+    #bpmHeaderInfo {
+        display: block;
+        padding-left: 180px;
+        border-color: seashell;
+        border-radius: 5px;
+        border-style: solid;
+        border-width: 1px;
+        margin-left: 2px;
+        margin-bottom: 5px;
+        width: 346px;
+    }
+    
+    #bpmControl {
+        width: 35px;
+        height: 665px;
+        top: -652px;
+    }
+
+    #block3 .instrumentId {
+        display: block;
+    }
+
+    #bpmSlider {
+        -webkit-appearance: none;  /* Override default CSS styles */
+        appearance: none;
+        width: 655px; /* Full-width */
+        height: 25px; /* Specified height */
+        background: #d3d3d3; /* Grey background */
+        outline: none; /* Remove outline */
+        opacity: 0.9; /* Set transparency (for mouse-over effects on hover) */
+        -webkit-transition: .2s; /* 0.2 seconds transition on hover */
+        transition: opacity .2s;
+        transform: rotate(270deg);
+        position: relative;
+        top: 318px;
+        left: -312px;
+    }
+
+    .controlButtons {
+        border-radius: 100%;
+        width: 2rem;
+    }
+
+    .controlSymbols {
+        display: inline;
+        font-size: 2rem;
+        text-align: center;
+        position: relative;
+        left: 2px;
+        bottom: 3px;
+    }
+
+    .controlLabels {
+        display: none;
+    }
+}

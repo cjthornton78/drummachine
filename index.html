@@ -1,0 +1,706 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Drum Machine</title>
+        <link rel="stylesheet" type="text/css" href="./css/drummachinestyle.css">
+    </head>
+
+    <body>
+        <audio src="sounds/808_kick.wav" autostart="false" id="808_kick">Your browser does not support audio playback.</audio>
+        <audio src="sounds/808_snare.wav" autostart="false" id="808_snare"></audio>
+        <audio src="sounds/808_hihatclosed.wav" autostart="false" id="808_hihatclosed"></audio>
+        <audio src="sounds/808_hihatopen.wav" autostart="false" id="808_hihatopen"></audio>
+        <audio src="sounds/808_cymbal.wav" autostart="false" id="808_cymbal"></audio>
+        <audio src="sounds/808_tom.wav" autostart="false" id="808_tom"></audio>
+        <audio src="sounds/808_clap.wav" autostart="false" id="808_clap"></audio>
+        <audio src="sounds/808_cowbell.wav" autostart="false" id="808_cowbell"></audio>
+
+        <header>
+            <h1>
+                Drum Machine
+            </h1>
+        </header>
+
+        <main>
+
+            <div id="controlButtonsBlock">
+                <div id="playpause" class="controlButtons"><span class="controlSymbols"> ⏯</span><span class="controlLabels"> PLAY/PAUSE</span></div>
+                <div id="stop" class="controlButtons"><span class="controlSymbols">⏹</span><span class="controlLabels"> STOP</span></div>
+                <div id="clear" class="controlButtons"><span class="controlSymbols">🗙</span><span class="controlLabels"> CLEAR</span></div>
+            </div>
+
+            <h1>Use the grid below to program your beat.</h1>
+
+            
+            <div id="bpmHeaderInfo">
+                <h2 id="bpmValueH">BPM: <span id="headerBpmValue">120</span></h2>
+            </div>
+
+            <div class="gridContainer">
+
+                <div class="buttonGrid">
+                    <table id="block1" class="buttonTable">
+                        <thead></thead>
+                        <tbody>
+                            <tr id="row11">
+                                <td>
+                                    <div class="instrumentId" id="cowbellLabel">Cowbell</div>
+                                </td>
+                                <td>
+                                    <div class="beatButton" id="b111"> </div> <!-- N.B. the button ID is block, row & column -->
+                                </td>
+                                <td>
+                                    <div class="beatButton" id="b112"> </div> <!-- There are other ways to refer to the buttons here, but this will make testing, fault-finding, maintenance & updates quicker -->
+                                </td>
+                                <td>
+                                    <div class="beatButton" id="b113"> </div>
+                                </td>
+                                <td>
+                                    <div class="beatButton" id="b114"> </div>
+                                </td>
+                            </tr>
+                            
+                            
+                            <tr id="row12">
+                                <td>
+                                    <div class="instrumentId">Clap</div>
+                                </td>
+                                <td>
+                                    <div class="beatButton" id="b121"> </div>
+                                </td>
+                                <td>
+                                    <div class="beatButton" id="b122"> </div>
+                                </td>
+                                <td>
+                                    <div class="beatButton" id="b123"> </div>
+                                </td>
+                                <td>
+                                    <div class="beatButton" id="b124"> </div>
+                                </td>
+                            </tr>
+
+                            
+                            <tr id="row13">
+                                <td>
+                                    <div class="instrumentId">Tom</div>
+                                </td>
+                                <td>
+                                    <div class="beatButton" id="b131"> </div>
+                                </td>
+                                <td>
+                                    <div class="beatButton" id="b132"> </div>
+                                </td>
+                                <td>
+                                    <div class="beatButton" id="b133"> </div>
+                                </td>
+                                <td>
+                                    <div class="beatButton" id="b134"> </div>
+                                </td>
+                            </tr>
+
+                            
+                            <tr id="row14">
+                                <td>
+                                    <div class="instrumentId">Cymbal</div>
+                                </td>
+                                <td>
+                                    <div class="beatButton" id="b141"> </div>
+                                </td>
+                                <td>
+                                    <div class="beatButton" id="b142"> </div>
+                                </td>
+                                <td>
+                                    <div class="beatButton" id="b143"> </div>
+                                </td>
+                                <td>
+                                    <div class="beatButton" id="b144"> </div>
+                                </td>
+                            </tr>
+                            
+                            
+                            <tr id="row15">
+                                <td>
+                                    <div class="instrumentId">HiHat Open</div>
+                                </td>
+                                <td>
+                                    <div class="beatButton" id="b151"> </div>
+                                </td>
+                                <td>
+                                    <div class="beatButton" id="b152"> </div>
+                                </td>
+                                <td>
+                                    <div class="beatButton" id="b153"> </div>
+                                </td>
+                                <td>
+                                    <div class="beatButton" id="b154"> </div>
+                                </td>
+                            </tr>
+                            
+                            
+                            <tr id="row16">
+                                <td>
+                                    <div class="instrumentId">HiHat Closed</div>
+                                </td>
+                                <td>
+                                    <div class="beatButton" id="b161"> </div>
+                                </td>
+                                <td>
+                                    <div class="beatButton" id="b162"> </div>
+                                </td>
+                                <td>
+                                    <div class="beatButton" id="b163"> </div>
+                                </td>
+                                <td>
+                                    <div class="beatButton" id="b164"> </div>
+                                </td>
+                            </tr>
+                            
+                            
+                            <tr id="row17">
+                                <td>
+                                    <div class="instrumentId">Snare</div>
+                                </td>
+                                <td>
+                                    <div class="beatButton" id="b171"> </div>
+                                </td>
+                                <td>
+                                    <div class="beatButton" id="b172"> </div>
+                                </td>
+                                <td>
+                                    <div class="beatButton" id="b173"> </div>
+                                </td>
+                                <td>
+                                    <div class="beatButton" id="b174"> </div>
+                                </td>
+                            </tr>
+
+                            
+                            <tr id="row18">
+                                <td>
+                                    <div class="instrumentId">Kick</div>
+                                </td>
+                                <td>
+                                    <div class="beatButton" id="b181"> </div>
+                                </td>
+                                <td>
+                                    <div class="beatButton" id="b182"> </div>
+                                </td>
+                                <td>
+                                    <div class="beatButton" id="b183"> </div>
+                                </td>
+                                <td>
+                                    <div class="beatButton" id="b184"> </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                
+                <div class="splitGridsInFour"><br><br></div>
+
+                <div class="buttonGrid">
+                    <table id="block2" class="buttonTable">
+                        <thead></thead>
+                        <tbody>
+                            <tr id="row21">
+                                <td>
+                                    <div class="instrumentId">Cowbell</div>
+                                </td>
+                                <td>
+                                    <div class="beatButton" id="b211"> </div>
+                                </td>
+                                <td>
+                                    <div class="beatButton" id="b212"> </div>
+                                </td>
+                                <td>
+                                    <div class="beatButton" id="b213"> </div>
+                                </td>
+                                <td>
+                                    <div class="beatButton" id="b214"> </div>
+                                </td>
+                            </tr>
+                            
+                            
+                            <tr id="row22">
+                                <td>
+                                    <div class="instrumentId">Clap</div>
+                                </td>
+                                <td>
+                                    <div class="beatButton" id="b221"> </div>
+                                </td>
+                                <td>
+                                    <div class="beatButton" id="b222"> </div>
+                                </td>
+                                <td>
+                                    <div class="beatButton" id="b223"> </div>
+                                </td>
+                                <td>
+                                    <div class="beatButton" id="b224"> </div>
+                                </td>
+                            </tr>
+
+                            
+                            <tr id="row23">
+                                <td>
+                                    <div class="instrumentId">Tom</div>
+                                </td>
+                                <td>
+                                    <div class="beatButton" id="b231"> </div>
+                                </td>
+                                <td>
+                                    <div class="beatButton" id="b232"> </div>
+                                </td>
+                                <td>
+                                    <div class="beatButton" id="b233"> </div>
+                                </td>
+                                <td>
+                                    <div class="beatButton" id="b234"> </div>
+                                </td>
+                            </tr>
+
+                            
+                            <tr id="row24">
+                                <td>
+                                    <div class="instrumentId">Cymbal</div>
+                                </td>
+                                <td>
+                                    <div class="beatButton" id="b241"> </div>
+                                </td>
+                                <td>
+                                    <div class="beatButton" id="b242"> </div>
+                                </td>
+                                <td>
+                                    <div class="beatButton" id="b243"> </div>
+                                </td>
+                                <td>
+                                    <div class="beatButton" id="b244"> </div>
+                                </td>
+                            </tr>
+                            
+                            
+                            <tr id="row25">
+                                <td>
+                                    <div class="instrumentId">HiHat Open</div>
+                                </td>
+                                <td>
+                                    <div class="beatButton" id="b251"> </div>
+                                </td>
+                                <td>
+                                    <div class="beatButton" id="b252"> </div>
+                                </td>
+                                <td>
+                                    <div class="beatButton" id="b253"> </div>
+                                </td>
+                                <td>
+                                    <div class="beatButton" id="b254"> </div>
+                                </td>
+                            </tr>
+                            
+                            
+                            <tr id="row26">
+                                <td>
+                                    <div class="instrumentId">HiHat Closed</div>
+                                </td>
+                                <td>
+                                    <div class="beatButton" id="b261"> </div>
+                                </td>
+                                <td>
+                                    <div class="beatButton" id="b262"> </div>
+                                </td>
+                                <td>
+                                    <div class="beatButton" id="b263"> </div>
+                                </td>
+                                <td>
+                                    <div class="beatButton" id="b264"> </div>
+                                </td>
+                            </tr>
+                            
+                            
+                            <tr id="row27">
+                                <td>
+                                    <div class="instrumentId">Snare</div>
+                                </td>
+                                <td>
+                                    <div class="beatButton" id="b271"> </div>
+                                </td>
+                                <td>
+                                    <div class="beatButton" id="b272"> </div>
+                                </td>
+                                <td>
+                                    <div class="beatButton" id="b273"> </div>
+                                </td>
+                                <td>
+                                    <div class="beatButton" id="b274"> </div>
+                                </td>
+                            </tr>
+
+                            
+                            <tr id="row28">
+                                <td>
+                                    <div class="instrumentId">Kick</div>
+                                </td>
+                                <td>
+                                    <div class="beatButton" id="b281"> </div>
+                                </td>
+                                <td>
+                                    <div class="beatButton" id="b282"> </div>
+                                </td>
+                                <td>
+                                    <div class="beatButton" id="b283"> </div>
+                                </td>
+                                <td>
+                                    <div class="beatButton" id="b284"> </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div id="splitGridsInTwo"><br><br></div>
+                <div class="splitGridsInFour"><br><br></div>
+
+                <div class="buttonGrid">
+                    <table id="block3" class="buttonTable">
+                        <thead></thead>
+                        <tbody>
+                            <tr id="row31">
+                                <td>
+                                    <div class="instrumentId" id="cowbellLabel">Cowbell</div>
+                                </td>
+                                <td>
+                                    <div class="beatButton" id="b311"> </div>
+                                </td>
+                                <td>
+                                    <div class="beatButton" id="b312"> </div>
+                                </td>
+                                <td>
+                                    <div class="beatButton" id="b313"> </div>
+                                </td>
+                                <td>
+                                    <div class="beatButton" id="b314"> </div>
+                                </td>
+                            </tr>
+                            
+                            
+                            <tr id="row32">
+                                <td>
+                                    <div class="instrumentId">Clap</div>
+                                </td>
+                                <td>
+                                    <div class="beatButton" id="b321"> </div>
+                                </td>
+                                <td>
+                                    <div class="beatButton" id="b322"> </div>
+                                </td>
+                                <td>
+                                    <div class="beatButton" id="b323"> </div>
+                                </td>
+                                <td>
+                                    <div class="beatButton" id="b324"> </div>
+                                </td>
+                            </tr>
+
+                            
+                            <tr id="row33">
+                                <td>
+                                    <div class="instrumentId">Tom</div>
+                                </td>
+                                <td>
+                                    <div class="beatButton" id="b331"> </div>
+                                </td>
+                                <td>
+                                    <div class="beatButton" id="b332"> </div>
+                                </td>
+                                <td>
+                                    <div class="beatButton" id="b333"> </div>
+                                </td>
+                                <td>
+                                    <div class="beatButton" id="b334"> </div>
+                                </td>
+                            </tr>
+
+                            
+                            <tr id="row34">
+                                <td>
+                                    <div class="instrumentId">Cymbal</div>
+                                </td>
+                                <td>
+                                    <div class="beatButton" id="b341"> </div>
+                                </td>
+                                <td>
+                                    <div class="beatButton" id="b342"> </div>
+                                </td>
+                                <td>
+                                    <div class="beatButton" id="b343"> </div>
+                                </td>
+                                <td>
+                                    <div class="beatButton" id="b344"> </div>
+                                </td>
+                            </tr>
+                            
+                            
+                            <tr id="row35">
+                                <td>
+                                    <div class="instrumentId">HiHat Open</div>
+                                </td>
+                                <td>
+                                    <div class="beatButton" id="b351"> </div>
+                                </td>
+                                <td>
+                                    <div class="beatButton" id="b352"> </div>
+                                </td>
+                                <td>
+                                    <div class="beatButton" id="b353"> </div>
+                                </td>
+                                <td>
+                                    <div class="beatButton" id="b354"> </div>
+                                </td>
+                            </tr>
+                            
+                            
+                            <tr id="row36">
+                                <td>
+                                    <div class="instrumentId">HiHat Closed</div>
+                                </td>
+                                <td>
+                                    <div class="beatButton" id="b361"> </div>
+                                </td>
+                                <td>
+                                    <div class="beatButton" id="b362"> </div>
+                                </td>
+                                <td>
+                                    <div class="beatButton" id="b363"> </div>
+                                </td>
+                                <td>
+                                    <div class="beatButton" id="b364"> </div>
+                                </td>
+                            </tr>
+                            
+                            
+                            <tr id="row37">
+                                <td>
+                                    <div class="instrumentId">Snare</div>
+                                </td>
+                                <td>
+                                    <div class="beatButton" id="b371"> </div>
+                                </td>
+                                <td>
+                                    <div class="beatButton" id="b372"> </div>
+                                </td>
+                                <td>
+                                    <div class="beatButton" id="b373"> </div>
+                                </td>
+                                <td>
+                                    <div class="beatButton" id="b374"> </div>
+                                </td>
+                            </tr>
+
+                            
+                            <tr id="row38">
+                                <td>
+                                    <div class="instrumentId">Kick</div>
+                                </td>
+                                <td>
+                                    <div class="beatButton" id="b381"> </div>
+                                </td>
+                                <td>
+                                    <div class="beatButton" id="b382"> </div>
+                                </td>
+                                <td>
+                                    <div class="beatButton" id="b383"> </div>
+                                </td>
+                                <td>
+                                    <div class="beatButton" id="b384"> </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                
+                <div class="splitGridsInFour"><br><br></div>
+
+                <div class="buttonGrid">
+                    <table id="block4" class="buttonTable">
+                        <thead></thead>
+                        <tbody>
+                            <tr id="row41">
+                                <td>
+                                    <div class="instrumentId">Cowbell</div>
+                                </td>
+                                <td>
+                                    <div class="beatButton" id="b411"> </div>
+                                </td>
+                                <td>
+                                    <div class="beatButton" id="b412"> </div>
+                                </td>
+                                <td>
+                                    <div class="beatButton" id="b413"> </div>
+                                </td>
+                                <td>
+                                    <div class="beatButton" id="b414"> </div>
+                                </td>
+                            </tr>
+                            
+                            
+                            <tr id="row42">
+                                <td>
+                                    <div class="instrumentId">Clap</div>
+                                </td>
+                                <td>
+                                    <div class="beatButton" id="b421"> </div>
+                                </td>
+                                <td>
+                                    <div class="beatButton" id="b422"> </div>
+                                </td>
+                                <td>
+                                    <div class="beatButton" id="b423"> </div>
+                                </td>
+                                <td>
+                                    <div class="beatButton" id="b424"> </div>
+                                </td>
+                            </tr>
+
+                            
+                            <tr id="row43">
+                                <td>
+                                    <div class="instrumentId">Tom</div>
+                                </td>
+                                <td>
+                                    <div class="beatButton" id="b431"> </div>
+                                </td>
+                                <td>
+                                    <div class="beatButton" id="b432"> </div>
+                                </td>
+                                <td>
+                                    <div class="beatButton" id="b433"> </div>
+                                </td>
+                                <td>
+                                    <div class="beatButton" id="b434"> </div>
+                                </td>
+                            </tr>
+
+                            
+                            <tr id="row44">
+                                <td>
+                                    <div class="instrumentId">Cymbal</div>
+                                </td>
+                                <td>
+                                    <div class="beatButton" id="b441"> </div>
+                                </td>
+                                <td>
+                                    <div class="beatButton" id="b442"> </div>
+                                </td>
+                                <td>
+                                    <div class="beatButton" id="b443"> </div>
+                                </td>
+                                <td>
+                                    <div class="beatButton" id="b444"> </div>
+                                </td>
+                            </tr>
+                            
+                            
+                            <tr id="row45">
+                                <td>
+                                    <div class="instrumentId">HiHat Open</div>
+                                </td>
+                                <td>
+                                    <div class="beatButton" id="b451"> </div>
+                                </td>
+                                <td>
+                                    <div class="beatButton" id="b452"> </div>
+                                </td>
+                                <td>
+                                    <div class="beatButton" id="b453"> </div>
+                                </td>
+                                <td>
+                                    <div class="beatButton" id="b454"> </div>
+                                </td>
+                            </tr>
+                            
+                            
+                            <tr id="row46">
+                                <td>
+                                    <div class="instrumentId">HiHat Closed</div>
+                                </td>
+                                <td>
+                                    <div class="beatButton" id="b461"> </div>
+                                </td>
+                                <td>
+                                    <div class="beatButton" id="b462"> </div>
+                                </td>
+                                <td>
+                                    <div class="beatButton" id="b463"> </div>
+                                </td>
+                                <td>
+                                    <div class="beatButton" id="b464"> </div>
+                                </td>
+                            </tr>
+                            
+                            
+                            <tr id="row47">
+                                <td>
+                                    <div class="instrumentId">Snare</div>
+                                </td>
+                                <td>
+                                    <div class="beatButton" id="b471"> </div>
+                                </td>
+                                <td>
+                                    <div class="beatButton" id="b472"> </div>
+                                </td>
+                                <td>
+                                    <div class="beatButton" id="b473"> </div>
+                                </td>
+                                <td>
+                                    <div class="beatButton" id="b474"> </div>
+                                </td>
+                            </tr>
+
+                            
+                            <tr id="row48">
+                                <td>
+                                    <div class="instrumentId">Kick</div>
+                                </td>
+                                <td>
+                                    <div class="beatButton" id="b481"> </div>
+                                </td>
+                                <td>
+                                    <div class="beatButton" id="b482"> </div>
+                                </td>
+                                <td>
+                                    <div class="beatButton" id="b483"> </div>
+                                </td>
+                                <td>
+                                    <div class="beatButton" id="b484"> </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div id="bpmControl">
+                    <form id="bpmSliderForm">
+                        <input type="range" id="bpmSlider" min="60" max="240">
+                    </form>
+                    <div id="bpmControlInfo">
+                        <h1>BPM</h1>
+                        <h2 id="bpmValueC">120</h2>
+                    </div>
+                </div>
+
+            </div>
+
+            <div id="positionCounterBox"><h1 id="positionCounter">0</h1></div>
+
+        </main>
+
+        <footer>
+            <!-- p> TODO - uncomment this when it's ready to go online
+                &copy; Copyright 2020
+            </p -->
+        </footer>
+    </body>
+
+    <script src="scripts/buttonControl.js"></script>
+    <script src="scripts/gridLooper.js"></script>
+
+</html>
